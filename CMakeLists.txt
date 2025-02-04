@@ -41,8 +41,8 @@ pico_set_program_name(Silent_Pico_IP "Silent_Pico_IP")
 pico_set_program_version(Silent_Pico_IP "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(Silent_Pico_IP 1)
-pico_enable_stdio_usb(Silent_Pico_IP 0)
+pico_enable_stdio_uart(Silent_Pico_IP 0)
+pico_enable_stdio_usb(Silent_Pico_IP 1)
 
 # Add the standard library to the build
 target_link_libraries(Silent_Pico_IP
@@ -55,7 +55,7 @@ target_include_directories(Silent_Pico_IP PRIVATE
 
 # Add any user requested libraries
 target_link_libraries(Silent_Pico_IP 
-        
+        hardware_adc
         )
 
 pico_add_extra_outputs(Silent_Pico_IP)
