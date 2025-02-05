@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include "pico/stdlib.h"
 #include "hardware/adc.h"
 #include "hardware/i2c.h"
@@ -7,6 +8,8 @@
 #define RED_LED 13
 #define GREEN_LED 11
 #define MIC_PIN 28
+#define OFFSET 2048
+#define RMS_REFERENCE 1.0
 
 ssd1306_t disp;
 
@@ -25,6 +28,7 @@ void setup_adc(){
     adc_select_input(2);
 }
 
+// Function to setup I2C and SSD1306
 void setup_i2c_ssd1306()
 {
     i2c_init(i2c1, 400000);
@@ -38,6 +42,20 @@ void setup_i2c_ssd1306()
     ssd1306_show(&disp);
 }
 
+float digital_to_dB(uint16_t *samples, uint8_t n_samples){
+
+    float sum = 0.0;
+
+    for(int i = 0; i<n_samples; i++){
+        float value = samples[i] - OFFSET;
+        sum += value * value;
+    }
+
+    float rms = sqrt(sum/n_samples);
+    
+    return 20 * log10(rms/RMS_REFERENCE);
+}
+
 int main()
 {
     stdio_init_all();
@@ -46,17 +64,21 @@ int main()
     setup_i2c_ssd1306();
 
     char buffer[20];
+    uint16_t samples[100];
 
     while (true) {
+        
+        for(int i = 0; i<100; i++){
+            samples[i] = adc_read();
+            sleep_us(100);
+        }
 
-        uint16_t samples = adc_read();
+        uint8_t dB = digital_to_dB(samples, 100);
         
-        
-        printf("ADC Value: %d\n", samples);
-        sprintf(buffer, "ADC Value: %d", samples);
-        ssd1306_draw_string(&disp, 0, 0, 1, buffer);
+        sprintf(buffer, "dB: %d", dB);
+        ssd1306_draw_string(&disp, 0, 0, 2, buffer);
         ssd1306_show(&disp);
         ssd1306_clear_area(&disp, 0, 0, 128, 32);
-        sleep_ms(1000);
+        sleep_ms(100);
     }
 }
