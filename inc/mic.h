@@ -14,5 +14,7 @@ typedef struct{
 extern micdata_t micdata;
 
 void setup_adc();
+void collect_samples();
+float digital_to_dB(micdata_t *micdata, uint8_t n_samples);
 
 #endif
