@@ -35,5 +35,15 @@
     "raspberry-pi-pico.cmakeAutoConfigure": true,
     "raspberry-pi-pico.useCmakeTools": false,
     "raspberry-pi-pico.cmakePath": "${HOME}/.pico-sdk/cmake/v3.28.6/bin/cmake",
-    "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja"
+    "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja",
+    "files.associations": {
+        "ssd1306.h": "c",
+        "stdlib.h": "c",
+        "math.h": "c",
+        "mic.h": "c",
+        "stdio.h": "c",
+        "i2c.h": "c",
+        "display.h": "c",
+        "led.h": "c"
+    }
 }

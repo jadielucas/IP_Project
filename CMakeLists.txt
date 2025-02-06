@@ -35,7 +35,8 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Silent_Pico_IP main.c src/ssd1306.c)
+add_executable(Silent_Pico_IP main.c src/ssd1306.c src/led.c
+src/mic.c src/display.c)
 
 pico_set_program_name(Silent_Pico_IP "Silent_Pico_IP")
 pico_set_program_version(Silent_Pico_IP "0.1")
