@@ -4,6 +4,7 @@
 #include "inc/led.h"
 #include "inc/mic.h"
 #include "inc/display.h"
+#include "inc/wifi.h"
 
 int main()
 {
@@ -11,6 +12,7 @@ int main()
     setup_gpio();
     setup_adc();
     setup_i2c_ssd1306();
+    wifi_init();
 
     while (true) {
         

@@ -44,6 +44,11 @@
         "stdio.h": "c",
         "i2c.h": "c",
         "display.h": "c",
-        "led.h": "c"
+        "led.h": "c",
+        "cyw43_arch.h": "c",
+        "cyw43.h": "c",
+        "dhcp.h": "c",
+        "netif.h": "c",
+        "opt.h": "c"
     }
 }

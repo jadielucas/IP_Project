@@ -19,6 +19,5 @@ void setup_i2c_ssd1306()
     ssd1306_clear(&disp);
     ssd1306_draw_string(&disp, 5, 28, 2, "SilentPico");
     ssd1306_show(&disp);
-    sleep_ms(3000);
     ssd1306_clear(&disp);
 }
