@@ -1,9 +1,6 @@
 #include <stdio.h>
-#include <math.h>
 #include "pico/stdlib.h"
-#include "hardware/adc.h"
-#include "hardware/i2c.h"
-#include "inc/ssd1306.h"
+#include "libs/ssd1306.h"
 #include "inc/led.h"
 #include "inc/mic.h"
 #include "inc/display.h"
@@ -25,7 +22,7 @@ int main()
         ssd1306_draw_string(&disp, 0, 0, 2, buffer);
         ssd1306_show(&disp);
         ssd1306_clear_area(&disp, 0, 0, 128, 32);
-        
+
         sleep_ms(100);
     }
 }

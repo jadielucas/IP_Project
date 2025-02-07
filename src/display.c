@@ -1,6 +1,6 @@
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
-#include "inc/ssd1306.h"
+#include "libs/ssd1306.h"
 #include "inc/display.h"
 
 ssd1306_t disp;
@@ -17,5 +17,8 @@ void setup_i2c_ssd1306()
     disp.external_vcc = false;
     ssd1306_init(&disp, 128, 64, 0x3C, i2c1);
     ssd1306_clear(&disp);
+    ssd1306_draw_string(&disp, 5, 28, 2, "SilentPico");
     ssd1306_show(&disp);
+    sleep_ms(3000);
+    ssd1306_clear(&disp);
 }
