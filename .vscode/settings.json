@@ -49,6 +49,8 @@
         "cyw43.h": "c",
         "dhcp.h": "c",
         "netif.h": "c",
-        "opt.h": "c"
+        "opt.h": "c",
+        "ip_addr.h": "c",
+        "mqtt.h": "c"
     }
 }

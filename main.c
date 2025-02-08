@@ -5,6 +5,7 @@
 #include "inc/mic.h"
 #include "inc/display.h"
 #include "inc/wifi.h"
+#include "inc/mqtt.h"
 
 int main()
 {
@@ -13,6 +14,7 @@ int main()
     setup_adc();
     setup_i2c_ssd1306();
     wifi_init();
+    start_mqtt_client();
 
     while (true) {
         

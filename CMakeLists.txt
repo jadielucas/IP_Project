@@ -36,7 +36,7 @@ pico_sdk_init()
 # Add executable. Default name is the project name, version 0.1
 
 add_executable(Silent_Pico_IP main.c libs/ssd1306.c src/led.c
-src/mic.c src/display.c src/wifi.c)
+src/mic.c src/display.c src/wifi.c src/mqtt.c)
 
 pico_set_program_name(Silent_Pico_IP "Silent_Pico_IP")
 pico_set_program_version(Silent_Pico_IP "0.1")
@@ -59,6 +59,7 @@ target_link_libraries(Silent_Pico_IP
         hardware_adc
         hardware_i2c
         pico_cyw43_arch_lwip_threadsafe_background
+        pico_lwip_mqtt
         )
 
 pico_add_extra_outputs(Silent_Pico_IP)
