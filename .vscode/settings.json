@@ -37,20 +37,12 @@
     "raspberry-pi-pico.cmakePath": "${HOME}/.pico-sdk/cmake/v3.28.6/bin/cmake",
     "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja",
     "files.associations": {
-        "ssd1306.h": "c",
-        "stdlib.h": "c",
-        "math.h": "c",
-        "mic.h": "c",
-        "stdio.h": "c",
-        "i2c.h": "c",
-        "display.h": "c",
         "led.h": "c",
-        "cyw43_arch.h": "c",
-        "cyw43.h": "c",
-        "dhcp.h": "c",
-        "netif.h": "c",
-        "opt.h": "c",
+        "mic.h": "c",
+        "mqtt.h": "c",
         "ip_addr.h": "c",
-        "mqtt.h": "c"
+        "opt.h": "c",
+        "display.h": "c",
+        "stdlib.h": "c"
     }
 }

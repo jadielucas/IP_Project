@@ -8,7 +8,7 @@ ssd1306_t disp;
 char buffer[20];
 
 // Function to setup I2C and SSD1306
-void setup_i2c_ssd1306()
+void setup_display()
 {
     i2c_init(i2c1, 400000);
     gpio_set_function(14, GPIO_FUNC_I2C);

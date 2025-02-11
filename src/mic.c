@@ -6,7 +6,7 @@
 micdata_t micdata;
 
 // Function to setup ADC
-void setup_adc(){
+void setup_mic(){
     adc_init();
     adc_gpio_init(MIC_PIN);
     adc_select_input(2);

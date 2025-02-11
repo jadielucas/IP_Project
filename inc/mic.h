@@ -5,15 +5,16 @@
 #define OFFSET 2048
 #define RMS_REFERENCE 1.0
 #define MIC_PIN 28
+#define DB_THRESHOLD 36
 
 typedef struct{
     uint16_t samples[SAMPLE_COUNT];
-    float dB;
+    volatile float dB;
 } micdata_t;
 
 extern micdata_t micdata;
 
-void setup_adc();
+void setup_mic();
 void collect_samples();
 float digital_to_dB(micdata_t *micdata, uint8_t n_samples);
 
