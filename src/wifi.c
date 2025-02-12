@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include "pico/cyw43_arch.h"
-#include "libs/lwipopts.h"
-#include "libs/ssd1306.h"
 #include "inc/wifi.h"
-#include "inc/display.h"
 
 int wifi_init()
 {

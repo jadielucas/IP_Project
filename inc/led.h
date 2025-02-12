@@ -2,6 +2,7 @@
 #define LED_H
 
 #include "pico/stdlib.h"
+#include "inc/mic.h"
 
 #define RED_LED 13
 #define GREEN_LED 11

@@ -43,6 +43,8 @@
         "ip_addr.h": "c",
         "opt.h": "c",
         "display.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "string.h": "c",
+        "wifi.h": "c"
     }
 }

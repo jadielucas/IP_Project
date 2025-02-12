@@ -1,6 +1,10 @@
 #ifndef MIC_H
 #define MIC_H
 
+#include <math.h>
+#include "pico/stdlib.h"
+#include "hardware/adc.h"
+
 #define SAMPLE_COUNT 100
 #define OFFSET 2048
 #define RMS_REFERENCE 1.0

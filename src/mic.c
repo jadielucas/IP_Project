@@ -1,6 +1,3 @@
-#include <math.h>
-#include "pico/stdlib.h"
-#include "hardware/adc.h"
 #include "inc/mic.h"
 
 micdata_t micdata;

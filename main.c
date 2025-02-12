@@ -27,7 +27,10 @@ int main()
 
         update_display_db_value(&micdata);                     // Update the dB value on the display
 
+        publish_db_to_mqtt(&micdata);                          // Publish the dB value to the MQTT broker
+
         sleep_ms(100);                 // Wait 100ms before the next iteration
+
     }
     return 0;
 }

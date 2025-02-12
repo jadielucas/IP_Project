@@ -1,6 +1,4 @@
-#include "pico/stdlib.h"
 #include "inc/led.h"
-#include "inc/mic.h"
 
 struct repeating_timer timer;
 
