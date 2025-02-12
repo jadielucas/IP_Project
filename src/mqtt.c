@@ -23,7 +23,7 @@ void start_mqtt_client(void)
         return;
     }
     ip_addr_t broker_ip;
-    IP4_ADDR(&broker_ip, 52, 28, 26, 70);
+    IP4_ADDR(&broker_ip, 18,157,172,212);
 
     struct mqtt_connect_client_info_t client_info = {
         .client_id = "pico_client",

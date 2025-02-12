@@ -9,7 +9,7 @@ int wifi_init()
     }
     cyw43_arch_enable_sta_mode();
     printf("Conectando ao Wi-Fi...\n");
-    if (cyw43_arch_wifi_connect_timeout_ms(WIFI_SSID, WIFI_PASSWORD, CYW43_AUTH_WPA2_AES_PSK, 5000))
+    if (cyw43_arch_wifi_connect_timeout_ms(WIFI_SSID, WIFI_PASSWORD, CYW43_AUTH_WPA2_AES_PSK, 8000))
     {
         printf("Falha ao conectar ao Wi-Fi\n");
         ssd1306_clear_area(&disp, 5, 28, 128, 50);

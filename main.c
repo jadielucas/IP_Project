@@ -17,7 +17,7 @@ int main()
     start_mqtt_client();               // Start the MQTT client for remote communication
 
     // Add a timer that calls the LED status update function every 100ms
-    add_repeating_timer_ms(100, update_led_status, &micdata, &timer);
+    add_repeating_timer_ms(200, update_led_status, &micdata, &timer);
 
     while (true) {
         
@@ -29,7 +29,7 @@ int main()
 
         publish_db_to_mqtt(&micdata);                          // Publish the dB value to the MQTT broker
 
-        sleep_ms(100);                 // Wait 100ms before the next iteration
+        sleep_ms(200);                 // Wait 100ms before the next iteration
 
     }
     return 0;
