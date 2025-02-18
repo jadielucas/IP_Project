@@ -26,7 +26,7 @@ Install SilentPico involves flashing a UF2 (USB Flashing Format) file onto your 
 
 1. Install GCC arm
 2. Install Pico SDK 1.5.1
-3. Install VS code**
+3. Install VS code
 4. Install these VS code extensions: cmake/cmaketools, C/C++, Raspberry Pi.
 5. import SilentPico Project on Raspberry Pi extension
 6. Change WIFI_SSID and WIFI_PASS on <wifi.h> for your Wi-Fi ssid and password, change IP address and MQTT_TOPIC on mqtt.h for your broker ip and topic.
