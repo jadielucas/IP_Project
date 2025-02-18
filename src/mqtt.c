@@ -21,6 +21,7 @@ ip_addr_t broker_ip;
  * @param arg User-defined argument (unused in this case).
  * @param status Connection status.
  */
+
 void mqtt_connection_cb(mqtt_client_t *client, void *arg, mqtt_connection_status_t status)
 {
     if (status == MQTT_CONNECT_ACCEPTED)
