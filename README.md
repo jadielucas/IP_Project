@@ -38,13 +38,13 @@ C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\toolchain\13.2 Rel1\bin
 ```
 **On system variables:**
 ```
-**name:** PICO_SDK_PATH
+name: PICO_SDK_PATH
 
-**value:** C:\Program Files\Raspberry Pi\Pico SDK v1.5.1
+value: C:\Program Files\Raspberry Pi\Pico SDK v1.5.1
 
-**name:** PICO_TOOLCHAIN_PATH
+name: PICO_TOOLCHAIN_PATH
 
-**value:** C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\toolchain
+value: C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\toolchain
 ```
 5. Install VS code
 6. Install these VS code extensions: cmake/cmaketools, C/C++, Raspberry Pi.
