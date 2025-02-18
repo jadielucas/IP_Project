@@ -86,3 +86,13 @@ The project is still under development, some upgrades are planned to be out very
 - [ ] Option to alternate Local and MQTT running mode
 - [x] Wi-Fi and MQTT: auto reconnection
 - [x] auto Local Running mode after 1 minute of attempts to reconnect
+
+## Autors
+
+* **jadielucas** - *Microphone reading, Wi-Fi and MQTT connection programming*
+* **argus86** - *I2C reading and OLED Display programming*
+* **WessTinho** - *LED programming and documentation*
+
+## License
+
+This project is licensed under the MIT License - see [LICENSE.md](https://github.com/jadielucas/IP_Project/blob/main/LICENSE) for more details.
