@@ -2,15 +2,15 @@
 
 SilentPico offers a simple and innovative solution to automate the process of maintaining silence on the context of traditional libraries. The system not only helps users themselves notice when they are being noisy, but also keeps librarians informed about the noise level at each desk, ensuring a quieter and more organized environment for everyone.
 
-## Funcionalities
+## Features
 
-1. Noise detect
-2. Digital to dB conversion
-3. Noise notify with LEDs
-4. Wi-Fi and MQTT Connection
-5. dB value and connection status on OLED Display
-6. Auto Reconnect Wi-Fi and MQTT
-7. Local running if Wi-Fi is not able to connect
+1. Noise detection
+2. Digital-to-dB conversion
+3. Noise notification via LEDs
+4. Wi-Fi and MQTT connectivity
+5. Display of dB values and connection status on the OLED screen
+6. Auto Wi-Fi and MQTT reconnection
+7. Local mode if Wi-Fi connection fails
 
 ## Requirements
 
@@ -23,7 +23,7 @@ SilentPico offers a simple and innovative solution to automate the process of ma
 
 ## Installation
 
-Since SilentPico does not yet have the functionality to edit the wifi SSID/PASSWORD, MQTT topic/Broker IP Addres and dB threshold, you will need to install the IDE to edit the code and compile, follow these steps:
+Currently, SilentPico does not yet have the functionality to edit the wifi SSID/PASSWORD, MQTT topic/Broker IP Addres and dB threshold, you will need to install a IDE to edit the code and compile, follow these steps:
 
 ### Windows:
 
@@ -61,11 +61,17 @@ See that [tutorial](https://www.youtube.com/watch?v=cMtbuvkkF5c&t=194s) for more
 
 ### Libraries:
 
-1. Make sure you have a good control of extern noises
-2. Put SilentPico on the center of your table
-3. Make sure the tables are on a great distance of each other (2mt recommended)
-4. Connect SilentPico to Wi-Fi or wait 1 minute for Local Running
-5. Now, if the users noise be louder than threshold, SilentPico will notify them and librarians about the noise.
+1. Minimize external noise interference
+
+2. Place SilentPico at the center of the table
+
+3. Ensure tables are spaced adequately (2 meters recommended)
+
+4. Connect SilentPico to Wi-Fi or wait 1 minute for Local Mode
+
+5. SilentPico will notify users and librarians if noise exceeds the threshold
+
+Note: SilentPico performs best in quiet environments. For other contexts, ensure proper noise control.
 
 **SilentPico runs better on quite places, if you need to apply SilentPico on another context, make sure you had a good noise control.**
 
