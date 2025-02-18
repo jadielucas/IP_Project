@@ -30,15 +30,6 @@ void setup_display()
     ssd1306_clear(&disp);                               // Clear the screen after initial display
 }
 
-void update_display_db_value(micdata_t *micdata)
-{
-    sprintf(buffer, "dB: %.2f", micdata->dB);
-
-    ssd1306_draw_string(&disp, 0, 0, 2, buffer);
-    ssd1306_show(&disp);
-    ssd1306_clear_area(&disp, 0, 0, 128, 28);
-}
-
 /**
  * @brief Updates the display with the decibel (dB) level captured by the microphone.
  *
@@ -50,9 +41,9 @@ void update_display_db_value(micdata_t *micdata)
 
 void update_display_db_value(micdata_t *micdata)
 {
+    sprintf(buffer, "dB: %.2f", micdata->dB);
 
-    sprintf(buffer, "dB: %.2f", micdata->dB);    // Format the dB value into a string
-    ssd1306_draw_string(&disp, 0, 0, 2, buffer); // Display the string at position (0,0)
-    ssd1306_show(&disp);                         // Update the display to show the new information
-    ssd1306_clear_area(&disp, 0, 0, 128, 32);    // Clear the upper area to prevent text overlap
+    ssd1306_draw_string(&disp, 0, 0, 2, buffer);
+    ssd1306_show(&disp);
+    ssd1306_clear_area(&disp, 0, 0, 128, 28);
 }
