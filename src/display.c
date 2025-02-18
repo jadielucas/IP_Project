@@ -35,15 +35,25 @@ void setup_display()
  *
  * @param micdata Pointer to the micdata_t structure containing the dB value to be displayed.
  *
- * The dB value is formatted as a string and displayed on the screen. After updating,
+ * If dB value is different of last dB value, the dB value is formatted as a string and displayed on the screen. After updating,
  * the area where the information was written is cleared to prevent text overlapping.
  */
 
 void update_display_db_value(micdata_t *micdata)
 {
-    sprintf(buffer, "dB: %.2f", micdata->dB);
+    static float last_db = 0.0;
 
-    ssd1306_draw_string(&disp, 0, 0, 2, buffer);
-    ssd1306_show(&disp);
-    ssd1306_clear_area(&disp, 0, 0, 128, 28);
+    if (micdata->dB != last_db)
+    {
+        sprintf(buffer, "dB: %.2f", micdata->dB);
+
+        ssd1306_draw_string(&disp, 0, 0, 2, buffer);
+        ssd1306_show(&disp);
+        ssd1306_clear_area(&disp, 0, 0, 128, 28);
+
+        last_db = micdata->dB;
+    }
+    else{
+        return;
+    }
 }

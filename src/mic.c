@@ -9,6 +9,7 @@ micdata_t micdata;
  * This function initializes the ADC module, configures the GPIO pin
  * for the microphone input, and selects the appropriate ADC channel.
  */
+
 void setup_mic(){
     adc_init();                  // Initialize the ADC module
     adc_gpio_init(MIC_PIN);       // Configure the microphone pin for ADC
@@ -21,6 +22,7 @@ void setup_mic(){
  * This function reads ADC values and stores them in the micdata.samples array.
  * A small delay is added between each sample to control the sampling rate.
  */
+
 void collect_samples(){
     for(int i = 0; i < SAMPLE_COUNT; i++){
         micdata.samples[i] = adc_read(); // Read ADC value and store it
@@ -38,6 +40,7 @@ void collect_samples(){
  * This function computes the Root Mean Square (RMS) value of the sampled data,
  * applies a logarithmic transformation, and returns the result in decibels.
  */
+
 float digital_to_dB(micdata_t *micdata, uint8_t n_samples){
 
     float sum = 0.0;

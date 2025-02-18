@@ -41,6 +41,7 @@ void mqtt_connection_cb(mqtt_client_t *client, void *arg, mqtt_connection_status
  * This function creates a new MQTT client, assigns a broker IP,
  * and attempts to establish a connection.
  */
+
 void start_mqtt_client(void)
 {
     IP4_ADDR(&broker_ip, 18, 195, 118, 49);
@@ -52,10 +53,6 @@ void start_mqtt_client(void)
         return;
     }
 
-    ip_addr_t broker_ip;
-    IP4_ADDR(&broker_ip, 18, 157, 172, 212);
-
-
     mqtt_client_connect(global_mqtt_client, &broker_ip, MQTT_PORT, mqtt_connection_cb, NULL, &client_info);
 }
 
@@ -63,30 +60,37 @@ void start_mqtt_client(void)
  * @brief Publishes sound level data to an MQTT topic.
  *
  * This function checks if the MQTT client is connected, formats the sound level data,
- * and publishes it to the "sensor/sound/pico" topic.
+ * and publishes it to the "sensor/sound/pico" topic if dB value - last db value is greater/equal 2.
  *
  * @param micdata Pointer to a micdata_t structure containing the sound level data.
  */
+
 void publish_db_to_mqtt(micdata_t *micdata)
 {
+    static float last_db;
+    static char payload[10];
+
     if (global_mqtt_client && mqtt_client_is_connected(global_mqtt_client) && is_wifi_connected())
     {
-        static char payload[32];
-        snprintf(payload, sizeof(payload), "%.2f", micdata->dB);
-
-        err_t err = mqtt_publish(global_mqtt_client, MQTT_TOPIC, payload, strlen(payload), 0, 0, NULL, NULL);
-        if (err == ERR_OK)
+        if (fabs(micdata->dB - last_db) >= 2.0)
         {
-            ssd1306_clear_area(&disp, 0, 30, 128, 32);
-            ssd1306_draw_string(&disp, 0, 30, 1, "MQTT: Connected");
-            printf("Dados enviados: %s\n", payload);
-        }
-        else
-        {
-            ssd1306_clear_area(&disp, 0, 30, 90, 32);
-            ssd1306_draw_string(&disp, 0, 30, 1, "Publish ERROR");
+            snprintf(payload, sizeof(payload), "%.2f", micdata->dB);
 
-            printf("Erro ao publicar dados: %d\n", err);
+            err_t err = mqtt_publish(global_mqtt_client, MQTT_TOPIC, payload, strlen(payload), 0, 0, NULL, NULL);
+            if (err == ERR_OK)
+            {
+                ssd1306_clear_area(&disp, 0, 30, 128, 32);
+                ssd1306_draw_string(&disp, 0, 30, 1, "MQTT: Connected");
+                printf("Dados enviados: %s\n", payload);
+                last_db = micdata->dB;
+            }
+            else
+            {
+                ssd1306_clear_area(&disp, 0, 30, 90, 32);
+                ssd1306_draw_string(&disp, 0, 30, 1, "Publish ERROR");
+
+                printf("Erro ao publicar dados: %d\n", err);
+            }
         }
     }
     else
@@ -98,6 +102,5 @@ void publish_db_to_mqtt(micdata_t *micdata)
         ssd1306_draw_string(&disp, 0, 45, 1, "No MQTT Connection");
 
         mqtt_client_connect(global_mqtt_client, &broker_ip, MQTT_PORT, mqtt_connection_cb, NULL, &client_info);
-        
     }
 }

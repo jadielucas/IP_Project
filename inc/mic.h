@@ -9,7 +9,7 @@
 #define OFFSET 2048
 #define RMS_REFERENCE 1.0
 #define MIC_PIN 28
-#define DB_THRESHOLD 36
+#define DB_THRESHOLD 37
 
 typedef struct{
     uint16_t samples[SAMPLE_COUNT];
