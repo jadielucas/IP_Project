@@ -1,5 +1,7 @@
 # SilentPico
 
+<img src="SilentPico.png" alt="SilentPico" width="400">
+
 SilentPico offers a simple and innovative solution to automate the process of maintaining silence on the context of traditional libraries. The system not only helps users themselves notice when they are being noisy, but also keeps librarians informed about the noise level at each desk, ensuring a quieter and more organized environment for everyone.
 
 ## Features
