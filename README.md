@@ -8,7 +8,7 @@ SilentPico offers a simple and innovative solution to automate the process of ma
 
 1. Noise detection
 2. Digital-to-dB conversion
-3. Noise notification via LEDs
+3. Noise notification using LEDs
 4. Wi-Fi and MQTT connectivity
 5. Display of dB values and connection status on the OLED screen
 6. Auto Wi-Fi and MQTT reconnection
@@ -81,6 +81,7 @@ Note: SilentPico performs best in quiet environments. For other contexts, ensure
 
 The project is still under development, some upgrades are planned to be out very soon:
 
+- [ ] Release .uf2 file
 - [ ] DNS Resolve
 - [ ] Better way to edit Wi-Fi SSID and PASSWORD
 - [ ] Option to alternate Local and MQTT running mode
