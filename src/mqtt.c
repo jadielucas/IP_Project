@@ -11,6 +11,16 @@ struct mqtt_connect_client_info_t client_info = {
 mqtt_client_t *global_mqtt_client = NULL;
 ip_addr_t broker_ip;
 
+/**
+ * @brief Callback function for MQTT connection events.
+ *
+ * This function is called when an MQTT connection attempt is completed.
+ * It prints whether the connection was successful or failed.
+ *
+ * @param client MQTT client instance.
+ * @param arg User-defined argument (unused in this case).
+ * @param status Connection status.
+ */
 void mqtt_connection_cb(mqtt_client_t *client, void *arg, mqtt_connection_status_t status)
 {
     if (status == MQTT_CONNECT_ACCEPTED)
@@ -24,6 +34,12 @@ void mqtt_connection_cb(mqtt_client_t *client, void *arg, mqtt_connection_status
     }
 }
 
+/**
+ * @brief Initializes and starts the MQTT client.
+ *
+ * This function creates a new MQTT client, assigns a broker IP,
+ * and attempts to establish a connection.
+ */
 void start_mqtt_client(void)
 {
     IP4_ADDR(&broker_ip, 18, 195, 118, 49);
@@ -35,9 +51,21 @@ void start_mqtt_client(void)
         return;
     }
 
+    ip_addr_t broker_ip;
+    IP4_ADDR(&broker_ip, 18, 157, 172, 212);
+
+
     mqtt_client_connect(global_mqtt_client, &broker_ip, MQTT_PORT, mqtt_connection_cb, NULL, &client_info);
 }
 
+/**
+ * @brief Publishes sound level data to an MQTT topic.
+ *
+ * This function checks if the MQTT client is connected, formats the sound level data,
+ * and publishes it to the "sensor/sound/pico" topic.
+ *
+ * @param micdata Pointer to a micdata_t structure containing the sound level data.
+ */
 void publish_db_to_mqtt(micdata_t *micdata)
 {
     if (global_mqtt_client && mqtt_client_is_connected(global_mqtt_client) && is_wifi_connected())
