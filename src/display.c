@@ -19,9 +19,11 @@ void setup_display()
     ssd1306_clear(&disp);
 }
 
-void update_display_db_value(micdata_t *micdata){
+void update_display_db_value(micdata_t *micdata)
+{
     sprintf(buffer, "dB: %.2f", micdata->dB);
+    
     ssd1306_draw_string(&disp, 0, 0, 2, buffer);
     ssd1306_show(&disp);
-    ssd1306_clear_area(&disp, 0, 0, 128, 32);
+    ssd1306_clear_area(&disp, 0, 0, 128, 28);
 }

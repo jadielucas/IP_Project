@@ -35,16 +35,5 @@
     "raspberry-pi-pico.cmakeAutoConfigure": true,
     "raspberry-pi-pico.useCmakeTools": false,
     "raspberry-pi-pico.cmakePath": "${HOME}/.pico-sdk/cmake/v3.28.6/bin/cmake",
-    "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja",
-    "files.associations": {
-        "led.h": "c",
-        "mic.h": "c",
-        "mqtt.h": "c",
-        "ip_addr.h": "c",
-        "opt.h": "c",
-        "display.h": "c",
-        "stdlib.h": "c",
-        "string.h": "c",
-        "wifi.h": "c"
-    }
+    "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja"
 }

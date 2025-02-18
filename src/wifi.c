@@ -1,5 +1,7 @@
 #include "inc/wifi.h"
 
+uint8_t reconnection_attempts = 0;
+
 int wifi_init()
 {
     if (cyw43_arch_init())
@@ -21,4 +23,51 @@ int wifi_init()
         ssd1306_clear_area(&disp, 5, 28, 128, 50);
     }
     return 0;
+}
+
+bool is_wifi_connected()
+{
+    int status = cyw43_wifi_link_status(&cyw43_state, CYW43_ITF_STA);
+
+    if (status == CYW43_LINK_JOIN || status == CYW43_LINK_UP)
+    {
+        ssd1306_clear_area(&disp, 0, 0, 128, 16);
+        
+        reconnection_attempts = 0;
+
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void check_wifi_connection()
+{
+
+    while (reconnection_attempts < 6 && !is_wifi_connected())
+    {
+        ssd1306_clear(&disp);
+        ssd1306_draw_string(&disp, 0, 0, 1, "Wi-Fi: Reconnecting..");
+        ssd1306_show(&disp);
+
+        if (!is_wifi_connected())
+        {
+            
+            printf("Wi-Fi desconectado. Tentando reconectar...\n");
+            if (cyw43_arch_wifi_connect_async(WIFI_SSID, WIFI_PASSWORD, CYW43_AUTH_WPA2_AES_PSK) == 0)
+            {
+                printf("Reconectando...\n");
+
+                reconnection_attempts++;
+
+                sleep_ms(10000);
+            }
+            else
+            {
+                printf("Erro ao iniciar reconexão\n");
+            }
+        }
+    }
 }

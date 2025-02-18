@@ -9,7 +9,11 @@
 #include "inc/mic.h"
 #include "inc/display.h"
 
+#define MQTT_TOPIC "sensor/sound/pico"
+
+extern struct mqtt_connect_client_info_t client_info;
 extern mqtt_client_t *global_mqtt_client;
+extern ip_addr_t broker_ip;
 
 void mqtt_connection_cb(mqtt_client_t *client, void *arg, mqtt_connection_status_t status);
 void start_mqtt_client(void);
