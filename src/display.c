@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include "pico/stdlib.h"
+#include "hardware/i2c.h"
 #include "inc/display.h"
 
-ssd1306_t disp;  // Structure to handle the SSD1306 display
-char buffer[20]; // Buffer to store the string to be displayed
+ssd1306_t disp;         // Structure to handle the SSD1306 display
+static char buffer[10]; // Buffer to store the string to be displayed
 
 /**
  * @brief Sets up I2C communication and initializes the SSD1306 display.
@@ -54,7 +56,8 @@ void update_display_db_value(micdata_t *micdata)
 
         last_db = micdata->dB;
     }
-    else{
+    else
+    {
         return;
     }
 }

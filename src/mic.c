@@ -1,3 +1,4 @@
+#include "hardware/adc.h"
 #include <math.h>
 #include "inc/mic.h"
 

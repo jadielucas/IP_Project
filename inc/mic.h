@@ -1,14 +1,13 @@
 #ifndef MIC_H
 #define MIC_H
 
-#include "pico/stdlib.h"
-#include "hardware/adc.h"
-
 #define SAMPLE_COUNT 100
 #define OFFSET 2048
 #define RMS_REFERENCE 1.0
 #define MIC_PIN 28
-#define DB_THRESHOLD 37
+#define DB_THRESHOLD 36
+
+#include "pico/stdlib.h"
 
 typedef struct{
     uint16_t samples[SAMPLE_COUNT];

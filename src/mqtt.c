@@ -1,19 +1,21 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
+#include "lwip/ip_addr.h"
+#include "libs/ssd1306.h"
 #include "inc/mqtt.h"
 #include "inc/wifi.h"
 #include "inc/display.h"
 
-struct mqtt_connect_client_info_t client_info = {
+static struct mqtt_connect_client_info_t client_info = {
     .client_id = "pico_client",
     .client_user = NULL,
     .client_pass = NULL,
     .keep_alive = 60,
 };
 
-mqtt_client_t *global_mqtt_client = NULL;
-ip_addr_t broker_ip;
+static mqtt_client_t *global_mqtt_client = NULL;
+static ip_addr_t broker_ip;
 
 /**
  * @brief Callback function for MQTT connection events.
@@ -74,7 +76,7 @@ void start_mqtt_client(void)
 void publish_db_to_mqtt(micdata_t *micdata)
 {
     static float last_db;
-    static char payload[10];
+    static char payload[5];
 
     if (global_mqtt_client && mqtt_client_is_connected(global_mqtt_client) && is_wifi_connected())
     {
@@ -87,8 +89,11 @@ void publish_db_to_mqtt(micdata_t *micdata)
             {
                 ssd1306_clear_area(&disp, 0, 30, 128, 32);
                 ssd1306_draw_string(&disp, 0, 30, 1, "MQTT: Connected");
-                printf("Dados enviados: %s\n", payload);
+
                 last_db = micdata->dB;
+                
+                printf("Dados enviados: %s\n", payload);
+                
             }
             else
             {

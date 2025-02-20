@@ -1,10 +1,10 @@
 #ifndef LED_H
 #define LED_H
 
-#include "pico/stdlib.h"
-
 #define RED_LED 13
 #define GREEN_LED 11
+
+#include "pico/stdlib.h"
 
 extern struct repeating_timer timer;
 
