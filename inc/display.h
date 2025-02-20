@@ -1,7 +1,6 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
-#include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
 #include "libs/ssd1306.h"

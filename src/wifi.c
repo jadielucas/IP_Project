@@ -1,4 +1,7 @@
+#include <stdio.h>
 #include "inc/wifi.h"
+#include "libs/ssd1306.h"
+#include "inc/display.h"
 
 uint8_t reconnection_attempts = 0;
 

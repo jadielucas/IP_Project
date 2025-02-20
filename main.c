@@ -18,6 +18,7 @@ int main()
     // Add a timer that calls the LED status update function every 250ms
     add_repeating_timer_ms(250, update_led_status, &micdata, &timer);
 
+    // Main loop of the program
     while (true) {
         
         collect_samples();             // Collect samples from the microphone
@@ -33,5 +34,5 @@ int main()
         sleep_ms(250);                 // Wait 250ms before the next iteration
 
     }
-    return 0;
+    return 0; // Only for compilation purposes
 }

@@ -1,3 +1,4 @@
+#include "inc/mic.h"
 #include "inc/led.h"
 
 // Structure to store a repeating timer

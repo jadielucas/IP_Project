@@ -1,7 +1,6 @@
 #ifndef MIC_H
 #define MIC_H
 
-#include <math.h>
 #include "pico/stdlib.h"
 #include "hardware/adc.h"
 

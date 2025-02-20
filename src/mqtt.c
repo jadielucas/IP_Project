@@ -1,5 +1,9 @@
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
 #include "inc/mqtt.h"
 #include "inc/wifi.h"
+#include "inc/display.h"
 
 struct mqtt_connect_client_info_t client_info = {
     .client_id = "pico_client",
@@ -44,7 +48,7 @@ void mqtt_connection_cb(mqtt_client_t *client, void *arg, mqtt_connection_status
 
 void start_mqtt_client(void)
 {
-    IP4_ADDR(&broker_ip, 18, 195, 118, 49);
+    IP4_ADDR(&broker_ip, 5,196,78,28);
 
     global_mqtt_client = mqtt_client_new();
     if (!global_mqtt_client)
@@ -54,6 +58,8 @@ void start_mqtt_client(void)
     }
 
     mqtt_client_connect(global_mqtt_client, &broker_ip, MQTT_PORT, mqtt_connection_cb, NULL, &client_info);
+
+    sleep_ms(5000);
 }
 
 /**

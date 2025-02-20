@@ -1,13 +1,10 @@
 #ifndef MQTT_H
 #define MQTT_H
 
-#include <stdio.h>
-#include <string.h>
 #include "lwip/apps/mqtt.h"
 #include "lwip/ip_addr.h"
 #include "libs/ssd1306.h"
 #include "inc/mic.h"
-#include "inc/display.h"
 
 #define MQTT_TOPIC "sensor/sound/pico"
 

@@ -1,3 +1,4 @@
+#include <math.h>
 #include "inc/mic.h"
 
 // Structure to store microphone data

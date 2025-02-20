@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "inc/display.h"
 
 ssd1306_t disp;  // Structure to handle the SSD1306 display
