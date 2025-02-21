@@ -73,9 +73,7 @@ See that [tutorial](https://www.youtube.com/watch?v=cMtbuvkkF5c&t=194s) for more
 
 5. SilentPico will notify users and librarians if noise exceeds the threshold
 
-Note: SilentPico performs best in quiet environments. For other contexts, ensure proper noise control.
-
-**SilentPico runs better on quite places, if you need to apply SilentPico on another context, make sure you had a good noise control.**
+**Note:** SilentPico performs best in quiet environments. For other contexts, ensure proper noise control.
 
 ## TODO
 
