@@ -88,9 +88,9 @@ The project is still under development, some upgrades are planned to be out very
 
 ## Autors
 
-* **jadielucas** - *Microphone reading, Wi-Fi and MQTT connection programming*
-* **argus86** - *I2C reading and OLED Display programming*
-* **WessTinho** - *LED programming and documentation*
+* **jadielucas** (Jadiel Lucas) - *Microphone reading, Wi-Fi and MQTT connection programming*
+* **argus86** (Alex Neto) - *I2C reading and OLED Display programming*
+* **WessTinho** (Pedro Lucas) - *LED programming and documentation*
 
 ## License
 
