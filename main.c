@@ -5,7 +5,6 @@
 #include "inc/mqtt.h"                  // Library for MQTT protocol communication
 
 //Main function of the program
-
 int main()
 {
     stdio_init_all();                  // Initialize standard serial communication
@@ -20,10 +19,10 @@ int main()
 
     // Main loop of the program
     while (true) {
-        
+
         collect_samples();             // Collect samples from the microphone
 
-        micdata.dB = digital_to_dB(&micdata, SAMPLE_COUNT);    // Convert digital microphone values to dB
+        digital_to_dB(&micdata, SAMPLE_COUNT);                 // Convert digital microphone values to dB
 
         update_display_db_value(&micdata);                     // Update the dB value on the display
 
@@ -34,5 +33,6 @@ int main()
         sleep_ms(250);                 // Wait 250ms before the next iteration
 
     }
+
     return 0; // Only for compilation purposes
 }

@@ -1,6 +1,9 @@
 #include "inc/mic.h"
 #include "inc/led.h"
 
+#define RED_LED 13   // GPIO pin for the red LED
+#define GREEN_LED 11 // GPIO pin for the green LED
+
 // Structure to store a repeating timer
 struct repeating_timer timer;
 
@@ -22,11 +25,13 @@ void setup_leds()
  * @brief Updates the LED status based on the dB level detected by the microphone.
  *
  * @param t Pointer to the repeating timer structure.
- * @return true Always returns true to keep the timer running.
  *
  * The function checks the dB level contained in the micdata_t structure and controls
  * the LEDs based on a predefined threshold (DB_THRESHOLD). If the dB level exceeds the threshold,
  * the red LED turns on and the green LED turns off; otherwise, the green LED turns on and the red LED turns off.
+ * 
+ * @return true Always returns true to keep the timer running.
+ * 
  */
 
 bool update_led_status(struct repeating_timer *t)

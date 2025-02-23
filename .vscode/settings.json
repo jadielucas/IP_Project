@@ -49,6 +49,7 @@
         "ssd1306.h": "c",
         "ip_addr.h": "c",
         "stdlib.h": "c",
-        "adc.h": "c"
+        "adc.h": "c",
+        "i2c.h": "c"
     }
 }
